@@ -1,0 +1,251 @@
+$colors: (
+  lightColor: #ffffff,
+  darkColor: #000000,
+  primary: #fbad27,
+  secondary: #757575,
+  textColor: #4a4a4a
+);
+$shadow2: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12),
+  0 1px 5px 0 rgba(0, 0, 0, 0.2);
+$shadow: 0 2px 2px 0 #fbad275d, 0 3px 1px -2px #fbad275d, 0 1px 5px 0 #fbad275b;
+$smallScreen: 650px;
+@mixin smallScreen {
+  @media (max-height: #{$smallScreen}) {
+    @content;
+  }
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: map-get($colors, textColor);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: map-get($colors, primary);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+h2 {
+  font-size: 2.5em;
+  display: inline-block;
+  border-bottom: 3px solid map-get($colors, primary);
+  margin-bottom: 0.5em;
+  color: map-get($colors, textColor);
+  font-family: cursive;
+}
+.landing {
+  width: 100vw;
+  height: 100vh;
+  .landing-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ab;
+    z-index: -1;
+  }
+  .video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -99;
+  }
+  video {
+    min-width: 100%;
+    min-height: 100%;
+  }
+  nav {
+    padding-top: 2em;
+    box-shadow: $shadow;
+    a,
+    i {
+      font-size: 1.2em;
+      color: map-get($colors, lightColor);
+      padding: 0 1em 0em 0;
+    }
+  }
+  .landing-txt {
+    margin-top: 10em;
+    z-index: 2;
+    text-align: center;
+    color: map-get($colors, lightColor);
+    font-family: cursive;
+    @include smallScreen {
+      margin-top: 5em;
+    }
+    h1 {
+      font-size: 4em;
+      @include smallScreen {
+        font-size: 2em;
+      }
+    }
+    p {
+      font-size: 1.4em;
+      @include smallScreen {
+        font-size: 1.1em;
+      }
+    }
+    a {
+      color: map-get($colors, lightColor);
+    }
+    .btn {
+      padding: 0.7em 3em;
+      border-radius: 40px;
+      font-size: 1.3em;
+      background-color: map-get($colors, primary);
+      @include smallScreen {
+        padding: 0.5em 1em;
+        border-radius: 40px;
+        font-size: 1em;
+      }
+    }
+  }
+}
+// SERVICES
+.services {
+  margin-top: 3em;
+  p {
+    color: map-get($colors, textColor);
+  }
+  .boxes {
+    margin-top: 3em;
+    text-align: center;
+    box-shadow: $shadow;
+    .box {
+      box-shadow: $shadow;
+      text-align: left;
+      margin: 1em;
+      padding: 2em 2em;
+      h3 {
+        font-size: 1.1em;
+      }
+      .fa {
+        color: map-get($colors, primary);
+      }
+    }
+  }
+}
+// FAVORITE
+.favorite {
+  margin-top: 4em;
+  .boxes {
+    .box {
+      height: 200px;
+      margin: 3em 0 1.7em 0;
+      img {
+        width: 100%;
+        height: 100%;
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.2s ease-out;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+// BOOKING
+.booking {
+  margin-top: 4em;
+  .boxes {
+    .box {
+      height: 200px;
+      margin: 3em 0 1.7em 0;
+      img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.2s ease-out;
+        }
+      }
+      .txt {
+        position: absolute;
+        bottom: 0;
+        padding: 0.5em;
+        color: map-get($colors, primary);
+        background-color: #000000a2;
+        box-shadow: $shadow;
+        border-radius: 10px;
+        h3 {
+          font-size: 1.1em;
+          font-weight: 900;
+        }
+        h5 {
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+// NEWSLETTER
+.newsletter {
+  h2 {
+    font-size: 2em;
+    box-shadow: none;
+    background-color: map-get($colors, primary);
+    display: block;
+    padding: 0;
+  }
+  margin: 3em 0;
+  padding: 2em 0;
+  background-color: map-get($colors, primary);
+  color: map-get($colors, textColor);
+  .newsletter-txt {
+    padding: 3em 1em 1em 1em;
+  }
+  .newsletter-form {
+    padding: 0em 2em 1em 2em;
+  }
+}
+// FEEDBACKS
+.travelers-feedback {
+  #feedbacks {
+    margin-bottom: 3em;
+  }
+  .box {
+    padding: 2em;
+    box-shadow: $shadow;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 2em;
+  }
+}
+footer {
+  background-color: map-get($colors, primary);
+  padding: 2em 2em 1em 2em;
+  p {
+    font-size: 1em;
+    color: map-get($colors, textColor);
+  }
+  .row {
+    margin-bottom: 1em;
+    .box {
+      margin: 1em;
+      box-shadow: $shadow2;
+      padding: 1em 0.5em 0.5em 0.5em;
+    }
+    h3 {
+      font-size: 1.2em;
+    }
+    .fa {
+      background-color: map-get($colors, secondary);
+      padding: 0.5em 0.7em;
+      border-radius: 50%;
+      &:nth-child(5) {
+        background-color: map-get($colors, lightColor);
+      }
+    }
+  }
+}
